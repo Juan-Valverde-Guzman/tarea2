@@ -10,13 +10,9 @@ import { ListarService } from 'src/app/services/listar.service';
 })
 export class ListarComponent {
 
-  cliente: cliente = {
-
-
-
-  }
-
-  clientes = [this.cliente]
+  clientes = [
+    {id:0, nombre:'', apellido:'', email:''}
+  ]
 
   constructor(private listar:ListarService, private route:ActivatedRoute) {
 
@@ -32,7 +28,7 @@ export class ListarComponent {
 
         console.log(res)
 
-        this.clientes
+        this.clientes = res
 
       },
 

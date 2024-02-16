@@ -8,7 +8,7 @@ import { cliente } from '../model/cliente';
 })
 export class ListarService {
 
-  private BASE_URL:string = "http://localhost:8080/api/clientes"
+  private BASE_URL:string = "http://localhost:8080/api/cliente"
 
   constructor(private http:HttpClient) { }
 

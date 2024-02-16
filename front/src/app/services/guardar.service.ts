@@ -8,7 +8,7 @@ import { guardarcliente } from '../model/guardarcliente';
 })
 export class GuardarService {
 
-  private BASE_URL:string = "http://localhost:8080/api/clientes"
+  private BASE_URL:string = "http://localhost:8080/api/cliente"
 
   private httpHeaders:HttpHeaders = new HttpHeaders({'Content-Type' : 'application/json'})
 

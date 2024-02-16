@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { guardarcliente } from 'src/app/model/guardarcliente';
 import { GuardarService } from 'src/app/services/guardar.service';
 
@@ -10,17 +10,27 @@ import { GuardarService } from 'src/app/services/guardar.service';
 })
 export class GuardarComponent {
 
+  form:FormGroup
+
   guardarcliente: guardarcliente = {
 
+    nombre:'',
 
+    apellido:'',
+
+    email:''
 
   }
 
-  constructor(private formBuilder:FormBuilder, private guardar:GuardarService) {
+  constructor(private formBuilder:FormBuilder, private guardarservice:GuardarService) {
 
     this.form = this.formBuilder.group({
 
-      "nombre": ''
+      "nombre": '',
+
+      "apellido": '',
+
+      "email": ''
 
     })
 
@@ -28,9 +38,13 @@ export class GuardarComponent {
 
   guardar() {
 
-    this.guardarcliente
+    this.guardarcliente.nombre = this.form.get('nombre')?.value
 
-    this.guardar.postCliente(this.guardarcliente).subscribe({
+    this.guardarcliente.apellido = this.form.get('apellido')?.value
+
+    this.guardarcliente.email = this.form.get('email')?.value
+
+    this.guardarservice.postCliente(this.guardarcliente).subscribe({
 
       next: res => console.log(res),
 
